@@ -53,3 +53,5 @@ class WeatherData {
         this._district = value;
     }
 }
+
+module.exports = WeatherData;
