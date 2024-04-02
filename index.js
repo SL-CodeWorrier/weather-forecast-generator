@@ -34,3 +34,33 @@ cron.schedule('*/5 * * * *', () => {
 
     generatedWeatherData = new WeatherData(temperature, isActiveIoTDeviceTemperature, humidity, isActiveIoTDeviceHumidity, airPressure, isActiveIoTDeviceAirPressure, lastUpdatedDateTime, district);
 });
+
+function generateWeatherData() {
+    return generatedWeatherData;
+}
+
+async function insertWeatherData() {
+    const weatherData = generateWeatherData();
+    try {
+        if (weatherData !== null) {
+            await axios.post('http://localhost:3000/api/weather', weatherData);
+        }
+        console.log(weatherData !== null ? 'Weather data inserted successfully.' : 'Not found weather data!');
+    } catch (error) {
+        console.error('Error inserting weather data:', error.message);
+    }
+}
+
+cron.schedule('*/5 * * * *', () => {
+    insertWeatherData();
+});
+
+
+// Serve static files (HTML, CSS, JS) from the public directory
+app.use(express.static('public'));
+
+// Start the server
+const PORT = process.env.PORT || 3100;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
