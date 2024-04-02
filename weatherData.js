@@ -35,4 +35,13 @@ class WeatherData {
         this._airPressure = value;
     }
 
+    // Getters and setters for lastUpdatedDateTime
+    get lastUpdatedDateTime() {
+        return this._lastUpdatedDateTime;
+    }
+    
+    set lastUpdatedDateTime(value) {
+        this._lastUpdatedDateTime = value;
+    }
+
 }
