@@ -26,6 +26,13 @@ class WeatherData {
         this._humidity = value;
     }
 
+    // Getters and setters for airPressure
+    get airPressure() {
+        return this._airPressure;
+    }
     
+    set airPressure(value) {
+        this._airPressure = value;
+    }
 
 }
