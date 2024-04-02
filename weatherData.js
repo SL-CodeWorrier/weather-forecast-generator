@@ -13,4 +13,19 @@ class WeatherData {
         return this._temperature;
     }
 
+    set temperature(value) {
+        this._temperature = value;
+    }
+
+    // Getters and setters for humidity
+    get humidity() {
+        return this._humidity;
+    }
+
+    set humidity(value) {
+        this._humidity = value;
+    }
+
+    
+
 }
