@@ -32,11 +32,11 @@ class WeatherData {
         this._airPressure = value;
     }
 
-    get lastUpdatedDateTime() {
+    get updatedDateTime() {
         return this._UpdatedDateTime;
     }
     
-    set lastUpdatedDateTime(value) {
+    set updatedDateTime(value) {
         this._UpdatedDateTime = value;
     }
 
