@@ -15,22 +15,18 @@ function generateWeatherData(district) {
     // Example: Air pressure in hPa (valid range: 1000 hPa to 1020 hPa)
     const airPressure = Math.floor(Math.random() * 21) + 1000;
 
-    // // Assume IoT devices are active
-    // const isActiveIoTDeviceTemperature = true;
-    // const isActiveIoTDeviceHumidity = true;
-    // const isActiveIoTDeviceAirPressure = true;
 
     // Get current date and time
     const UpdatedDateTime = new Date().toLocaleDateString() + " at " + new Date().toLocaleTimeString(); // Corrected variable name to 'lastUpdatedDateTime'
 
-    return new WeatherData(temperature, humidity, airPressure, UpdatedDateTime, district);
+    return new WeatherData(temp, humidity, airPressure, UpdatedDateTime, district);
 }
 
 // Function to insert weather data for a given district
 async function insertWeatherDataForDistrict(district) {
     const weatherData = generateWeatherData(district);
     try {
-        await axios.patch('https://weather-forecast-backend-m9oo.onrender.com/api/v1/weather/lk/byDistrict', {
+        await axios.patch('http://localhost:3002/api/v1/weather/lk/byDistrict', {
             district: district,
             weatherData: weatherData
         });
