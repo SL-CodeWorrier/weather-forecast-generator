@@ -30,7 +30,7 @@ function generateWeatherData(district) {
 async function insertWeatherDataForDistrict(district) {
     const weatherData = generateWeatherData(district);
     try {
-        await axios.patch('http://localhost:3001/api/v1/weather/lk/byDistrict', {
+        await axios.patch('https://weather-forecast-backend-m9oo.onrender.com/api/v1/weather/lk/byDistrict', {
             district: district,
             weatherData: weatherData
         });
