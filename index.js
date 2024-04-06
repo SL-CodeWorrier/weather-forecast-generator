@@ -17,7 +17,7 @@ function generateWeatherData(district) {
 
 
     // Get current date and time
-    const UpdatedDateTime = new Date().toLocaleDateString() + " at " + new Date().toLocaleTimeString(); // Corrected variable name to 'lastUpdatedDateTime'
+    const UpdatedDateTime = new Date().toLocaleDateString() + " at " + new Date().toLocaleTimeString(); 
 
     return new WeatherData(temp, humidity, airPressure, UpdatedDateTime, district);
 }
@@ -30,9 +30,9 @@ async function insertWeatherDataForDistrict(district) {
             district: district,
             weatherData: weatherData
         });
-        console.log(`Weather data inserted successfully for ${district}.`); // Corrected template literal syntax
+        console.log(`Weather data inserted successfully for ${district}.`); 
     } catch (error) {
-        console.error(`Error inserting weather data for ${district}:`, error.message); // Corrected template literal syntax
+        console.error(`Error inserting weather data for ${district}:`, error.message); 
     }
 }
 
@@ -57,5 +57,5 @@ cron.schedule('*/5 * * * *', async () => {
 // Start the server
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT} at ${new Date().toLocaleString()}`); // Corrected template literal syntax
+    console.log(`Server is running on port ${PORT} at ${new Date().toLocaleString()}`); 
 });
